@@ -5,6 +5,7 @@ import com.plural.spring.fundamentals.repository.SpeakerRepository;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -13,12 +14,15 @@ import java.util.List;
 @NoArgsConstructor
 public class SpeakerServiceImpl implements SpeakerService<Speaker> {
 
+//    @Autowired
     private SpeakerRepository<Speaker> speakerRepository;
 
+//    @Autowired
 //    public SpeakerServiceImpl(SpeakerRepository speakerRepository) {
 //        this.speakerRepository = speakerRepository;
 //    }
 
+    @Autowired
     public void setSpeakerRepository(SpeakerRepository<Speaker> speakerRepository) {
         this.speakerRepository = speakerRepository;
     }
