@@ -15,7 +15,7 @@ public class ConferenceApplication {
     private static void runConferenceApplication() {
 //        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        SpeakerService<Speaker> speakerService = context.getBean("speakerService", SpeakerService.class);
+        SpeakerService<Speaker> speakerService = context.getBean(SpeakerService.class);
         System.out.println(speakerService.findAllEntities().get(0).getFirstName());
     }
 }
