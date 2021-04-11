@@ -5,6 +5,11 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
 
+    <bean name="speakerRepository" class="com.plural.spring.fundamentals.repository.HibernateRepositoryImpl" />
 
+    <bean name="speakerService" class="com.plural.spring.fundamentals.services.SpeakerServiceImpl">
+<!--        <property name="speakerRepository" ref="speakerRepository" />-->
+        <constructor-arg index="0" ref="speakerRepository" />
+    </bean>
 
 </beans>

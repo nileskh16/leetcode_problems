@@ -2,7 +2,8 @@ package com.plural.spring.fundamentals;
 
 import com.plural.spring.fundamentals.models.Speaker;
 import com.plural.spring.fundamentals.services.SpeakerService;
-import com.plural.spring.fundamentals.services.SpeakerServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ConferenceApplication {
 
@@ -11,7 +12,8 @@ public class ConferenceApplication {
     }
 
     private static void runConferenceApplication() {
-        SpeakerService<Speaker> speakerService = new SpeakerServiceImpl();
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        SpeakerService<Speaker> speakerService = context.getBean("speakerService", SpeakerService.class);
         System.out.println(speakerService.findAllEntities().get(0).getFirstName());
     }
 }
