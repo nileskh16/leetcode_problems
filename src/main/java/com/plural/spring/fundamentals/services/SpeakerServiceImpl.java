@@ -15,7 +15,11 @@ public class SpeakerServiceImpl implements SpeakerService<Speaker> {
 
     private SpeakerRepository<Speaker> speakerRepository;
 
-    public SpeakerServiceImpl(SpeakerRepository speakerRepository) {
+//    public SpeakerServiceImpl(SpeakerRepository speakerRepository) {
+//        this.speakerRepository = speakerRepository;
+//    }
+
+    public void setSpeakerRepository(SpeakerRepository<Speaker> speakerRepository) {
         this.speakerRepository = speakerRepository;
     }
 
