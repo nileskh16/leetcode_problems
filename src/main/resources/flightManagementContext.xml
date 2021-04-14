@@ -5,5 +5,39 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <aop:aspectj-autoproxy />
 
+    <bean id="jim" class="com.plural.spring.fundamentals.models.Passenger">
+        <property name="name" value="Jim"/>
+        <property name="country" value="US" />
+    </bean>
+
+    <bean id="jerry" class="com.plural.spring.fundamentals.models.Passenger">
+        <property name="name" value="Jerry"/>
+        <property name="country" value="US" />
+    </bean>
+
+    <bean id="Tom" class="com.plural.spring.fundamentals.models.Passenger">
+        <property name="name" value="Tom" />
+        <property name="country" value="Germany" />
+    </bean>
+
+    <bean id="flight" class="com.plural.spring.fundamentals.models.Flight">
+        <property name="id" value="A1234O8" />
+        <property name="company" value="Emirates" />
+        <property name="passengers">
+            <list>
+                <ref bean="jim" />
+                <ref bean="jerry" />
+                <ref bean="Tom" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="ticket" class="com.plural.spring.fundamentals.models.Ticket">
+        <property name="number" value="12345678" />
+        <property name="passenger" ref="jim" />
+    </bean>
+
+    <bean id="loggerAspect" class="com.plural.spring.fundamentals.aspects.LoggerAspect" />
 </beans>

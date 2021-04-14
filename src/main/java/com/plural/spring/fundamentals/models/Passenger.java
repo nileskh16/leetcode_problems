@@ -1,19 +1,17 @@
 package com.plural.spring.fundamentals.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Passenger {
 
-    private final int id;
-
-    public Passenger(int id) {
-        this.id = id;
-    }
-
-    public int getPassengerId() {
-        return id;
-    }
+    private String name;
+    private String country;
 
     @Override
     public String toString() {
-        return "Person id: " + id;
+        return "Passenger " + name + " from " + country;
     }
 }

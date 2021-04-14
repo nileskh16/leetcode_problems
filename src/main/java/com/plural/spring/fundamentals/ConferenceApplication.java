@@ -2,8 +2,10 @@ package com.plural.spring.fundamentals;
 
 import com.plural.spring.fundamentals.config.AppConfig;
 import com.plural.spring.fundamentals.dao.PassengerDao;
+import com.plural.spring.fundamentals.models.Flight;
 import com.plural.spring.fundamentals.models.Passenger;
 import com.plural.spring.fundamentals.models.Speaker;
+import com.plural.spring.fundamentals.models.Ticket;
 import com.plural.spring.fundamentals.services.SpeakerService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -15,7 +17,7 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 public class ConferenceApplication {
 
     public static void main(String[] args) {
-        runPassengerApplication();
+        runFlightApplication();
     }
 
     private static void runConferenceApplication() {
@@ -43,5 +45,20 @@ public class ConferenceApplication {
         PassengerDao passengerDao = (PassengerDao) context.getBean("passengerDao");
         System.out.println(passengerDao.getPassenger(1));
         context.close();
+    }
+
+    private static void runFlightApplication() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("flightManagementContext.xml");
+        Passenger jim = context.getBean("jim", Passenger.class);
+        Passenger jerry = context.getBean("jerry", Passenger.class);
+        Passenger tom = context.getBean("Tom", Passenger.class);
+
+        Flight flight = context.getBean("flight", Flight.class);
+
+        Ticket ticket = context.getBean("ticket", Ticket.class);
+
+        flight.print();
+        System.out.println("Flight ID: " + flight.getId());
+        System.out.println("Ticket number: " + ticket.getNumber());
     }
 }

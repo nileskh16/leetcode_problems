@@ -14,7 +14,7 @@ public class PassengerDaoImpl implements PassengerDao {
         if (null != passengerMap.get(id)) {
             return passengerMap.get(id);
         }
-        Passenger passenger = new Passenger(id);
+        Passenger passenger = new Passenger();
         passengerMap.put(id, passenger);
         return passenger;
     }
