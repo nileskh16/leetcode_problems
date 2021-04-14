@@ -17,7 +17,7 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 public class ConferenceApplication {
 
     public static void main(String[] args) {
-        runFlightApplication();
+        runFlightApp();
     }
 
     private static void runConferenceApplication() {
@@ -60,5 +60,14 @@ public class ConferenceApplication {
         flight.print();
         System.out.println("Flight ID: " + flight.getId());
         System.out.println("Ticket number: " + ticket.getNumber());
+    }
+
+    private static void runFlightApp() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("flightManagementContext.xml");
+        PassengerDao passengerDao = (PassengerDao) context.getBean("passengerDao");
+        System.out.println("Getting an entry for the first time");
+        System.out.println(passengerDao.getPassenger(1));
+        System.out.println("Getting an entry from the cache");
+        System.out.println(passengerDao.getPassenger(1));
     }
 }
