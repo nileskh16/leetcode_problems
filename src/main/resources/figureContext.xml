@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+    <bean name="circle" class="com.plural.spring.fundamentals.context.Circle">
+        <properties>
+            <property name="radius" value="12.5" type="float" />
+            <property name="height" value="50.0" type="float" />
+        </properties>
+    </bean>
+
+    <bean name="square" class="com.plural.spring.fundamentals.context.Square">
+        <properties>
+            <property name="length" value="3.0" type="float" />
+            <property name="height" value="4.0" type="float" />
+            <property name="breadth" value="5.0" type="float" />
+        </properties>
+    </bean>
+</beans>

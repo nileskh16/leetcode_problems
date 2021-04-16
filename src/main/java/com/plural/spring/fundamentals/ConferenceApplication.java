@@ -2,6 +2,9 @@ package com.plural.spring.fundamentals;
 
 import com.plural.spring.fundamentals.annotations.FieldSerializer;
 import com.plural.spring.fundamentals.config.AppConfig;
+import com.plural.spring.fundamentals.context.CustomContext;
+import com.plural.spring.fundamentals.context.CustomContextFactory;
+import com.plural.spring.fundamentals.context.Figure;
 import com.plural.spring.fundamentals.dao.PassengerDao;
 import com.plural.spring.fundamentals.models.*;
 import com.plural.spring.fundamentals.services.SpeakerService;
@@ -15,7 +18,7 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 public class ConferenceApplication {
 
     public static void main(String[] args) {
-        runAnnotationSerializer();
+        runFigureContext();
     }
 
     private static void runConferenceApplication() {
@@ -78,6 +81,19 @@ public class ConferenceApplication {
         try {
             System.out.println(fieldSerializer.serializeObject(fifaPlayer));
         } catch (IllegalAccessException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    private static void runFigureContext() {
+        CustomContext context = CustomContextFactory.createContext("C:\\Users\\nswami\\Documents\\programs\\plural\\spring-core\\conference\\src\\main\\resources\\figureContext.xml");
+        try {
+            context.loadContext();
+            Figure circle = (Figure) context.getBean("circle");
+            Figure square = (Figure) context.getBean("square");
+            System.out.printf("Circle => Area : %f, Surface Area: %f, Volume: %f%n", circle.getArea(), circle.getSurfaceArea(), circle.getVolume());
+            System.out.printf("Square => Area : %f, Surface Area: %f, Volume: %f%n", square.getArea(), square.getSurfaceArea(), square.getVolume());
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
     }
