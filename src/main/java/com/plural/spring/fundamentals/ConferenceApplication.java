@@ -1,11 +1,9 @@
 package com.plural.spring.fundamentals;
 
+import com.plural.spring.fundamentals.annotations.FieldSerializer;
 import com.plural.spring.fundamentals.config.AppConfig;
 import com.plural.spring.fundamentals.dao.PassengerDao;
-import com.plural.spring.fundamentals.models.Flight;
-import com.plural.spring.fundamentals.models.Passenger;
-import com.plural.spring.fundamentals.models.Speaker;
-import com.plural.spring.fundamentals.models.Ticket;
+import com.plural.spring.fundamentals.models.*;
 import com.plural.spring.fundamentals.services.SpeakerService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -17,7 +15,7 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 public class ConferenceApplication {
 
     public static void main(String[] args) {
-        runFlightApp();
+        runAnnotationSerializer();
     }
 
     private static void runConferenceApplication() {
@@ -69,5 +67,18 @@ public class ConferenceApplication {
         System.out.println(passengerDao.getPassenger(1));
         System.out.println("Getting an entry from the cache");
         System.out.println(passengerDao.getPassenger(1));
+    }
+
+    private static void runAnnotationSerializer() {
+        FifaPlayer fifaPlayer = new FifaPlayer();
+        fifaPlayer.setName("Cristiano Ronaldo");
+        fifaPlayer.setCountry("Portugal");
+        fifaPlayer.setAge(35);
+        FieldSerializer fieldSerializer = new FieldSerializer();
+        try {
+            System.out.println(fieldSerializer.serializeObject(fifaPlayer));
+        } catch (IllegalAccessException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }
