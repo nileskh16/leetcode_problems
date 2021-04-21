@@ -2,15 +2,12 @@ package com.plural.spring.fundamentals.entities;
 
 import com.plural.spring.fundamentals.repositories.PricingCategoryJpaRepository;
 import com.plural.spring.fundamentals.repositories.TicketPriceJpaRepository;
-import com.plural.spring.fundamentals.repositories.TicketTypeRepository;
+import com.plural.spring.fundamentals.repositories.TicketTypeJpaRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.Assert;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 @SpringBootTest
@@ -20,7 +17,7 @@ public class TicketPriceTest {
     private TicketPriceJpaRepository repository;
 
     @Autowired
-    private TicketTypeRepository ticketRepository;
+    private TicketTypeJpaRepository ticketRepository;
 
     @Autowired
     private PricingCategoryJpaRepository priceRepository;
