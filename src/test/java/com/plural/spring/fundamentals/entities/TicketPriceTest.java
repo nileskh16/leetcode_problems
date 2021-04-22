@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @SpringBootTest
 public class TicketPriceTest {
@@ -46,5 +47,13 @@ public class TicketPriceTest {
         Assertions.assertEquals(900.50f, savedTp.getPrice());
         repository.deleteById(tp.getId());
         Assertions.assertNull(repository.findById(tp.getId()).orElse(null));
+    }
+
+    @Test
+    public void testJpaQl() {
+        List<TicketPrice> prices = repository.getTicketPricesBelowPriceWithWorkshopOn(5000.0F);
+        Assertions.assertEquals(3, prices.size());
+        prices = repository.getTicketPricesAbovePriceWithPriceCategory(500.0F, "E");
+        Assertions.assertEquals(1, prices.size());
     }
 }

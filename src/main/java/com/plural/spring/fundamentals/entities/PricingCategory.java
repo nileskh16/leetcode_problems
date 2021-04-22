@@ -14,6 +14,10 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@NamedQuery(
+        name = "PricingCategory.namedFindByCode",
+        query = "select p from PricingCategory p where p.code = :code"
+)
 public class PricingCategory {
 
     @Id
