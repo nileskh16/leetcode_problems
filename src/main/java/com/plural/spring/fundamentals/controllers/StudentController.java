@@ -1,8 +1,11 @@
 package com.plural.spring.fundamentals.controllers;
 
 import com.plural.spring.fundamentals.entities.Student;
+import com.plural.spring.fundamentals.events.StudentCreationEvent;
 import com.plural.spring.fundamentals.repositories.StudentRepositoryImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -10,10 +13,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/students")
+@RequiredArgsConstructor
 public class StudentController {
 
-    @Autowired
-    private StudentRepositoryImpl studentRepository;
+    private final StudentRepositoryImpl studentRepository;
+    private final ApplicationEventPublisher applicationEventPublisher;
 
     @GetMapping
     public List<Student> getAllStudents() {
@@ -22,7 +26,9 @@ public class StudentController {
 
     @PostMapping()
     public Student addStudent(@Valid @RequestBody Student student) {
-        return studentRepository.addEntry(student);
+        Student saveStudent = studentRepository.addEntry(student);
+        applicationEventPublisher.publishEvent(new StudentCreationEvent(saveStudent));
+        return saveStudent;
     }
 
     @GetMapping("/{id}")
