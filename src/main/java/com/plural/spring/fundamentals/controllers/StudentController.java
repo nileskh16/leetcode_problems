@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/students")
 public class StudentController {
 
     @Autowired
@@ -19,7 +19,7 @@ public class StudentController {
         return studentRepository.getAllEntries();
     }
 
-    @PostMapping
+    @PostMapping()
     public Student addStudent(@RequestBody Student student) {
         return studentRepository.addEntry(student);
     }
