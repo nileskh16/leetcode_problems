@@ -29,4 +29,8 @@ public class StudentRepositoryImpl implements CustomRepository<Student, Long> {
         }
         return storage.get(studentId);
     }
+
+    public boolean doesIdExists(Long id) {
+        return storage.containsKey(id);
+    }
 }
