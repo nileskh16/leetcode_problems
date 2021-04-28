@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: plural
+      username: admin
+      password: admin@123
+
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
