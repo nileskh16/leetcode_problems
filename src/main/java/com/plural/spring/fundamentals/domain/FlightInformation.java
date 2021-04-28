@@ -5,9 +5,8 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDate;
 
@@ -20,13 +19,11 @@ public class FlightInformation {
     @Id
     private String id;
 
-    @Field(name = "departure")
-    @Indexed
-    private String departureCity;
+    @DBRef(lazy = true)
+    private Airport departure;
 
-    @Field(name = "destination")
-    @Indexed
-    private String destinationCity;
+    @DBRef(lazy = true)
+    private Airport destination;
 
     private FlightType type;
     private boolean isDelayed;
