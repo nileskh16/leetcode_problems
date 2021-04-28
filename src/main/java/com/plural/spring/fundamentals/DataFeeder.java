@@ -35,7 +35,6 @@ public class DataFeeder implements CommandLineRunner {
         Airport paris = new Airport("Jeff Kendall", "Paris", 7890458);
         Airport newYork = new Airport("JFK", "New York", 99007656);
 
-
         FlightInformation flightOne = new FlightInformation();
         flightOne.setDeparture(rome);
         flightOne.setDestination(newYork);
