@@ -1,3 +1,5 @@
+package leetcode;
+
 import com.plural.spring.fundamentals.leetcodes.FurthestBuilding;
 import org.junit.Assert;
 import org.junit.Test;
