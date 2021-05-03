@@ -1,13 +1,18 @@
 package com.plural.spring.fundamentals.leetcodes;
 
+import com.plural.spring.fundamentals.utils.BinaryTree;
+
 public class BinarySearch {
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 4, 5, 6, 8, 8, 8};
-        int target = 8;
-        for (int i : new BinarySearch().binarySearch(nums, target)) {
-            System.out.println(i);
-        }
+//        int[] nums = {1, 2, 4, 5, 6, 8, 8, 8};
+//        int target = 8;
+//        for (int i : new BinarySearch().binarySearch(nums, target)) {
+//            System.out.println(i);
+//        }
+
+        BinarySearch binarySearch = new BinarySearch();
+        binarySearch.runBinarySearch();
     }
 
     public int[] binarySearch(int[] nums, int target) {
@@ -53,5 +58,16 @@ public class BinarySearch {
         if (firstIndex != -1 && firstIndex < ans[0]) ans[0] = firstIndex;
         if (lastIndex != 1 && lastIndex > ans[1]) ans[1] = lastIndex;
         return (nums[pivot] == target) ? pivot : -1;
+    }
+
+    private void runBinarySearch() {
+        BinaryTree tree = new BinaryTree();
+        tree.addNode("Portugal");
+        tree.addNode("Sporting Lisbon");
+        tree.addNode("Manchester United");
+        tree.addNode("Real Madrid");
+        tree.addNode("Juventus");
+        tree.sortValues().forEach(System.out::println);
+//        tree.traverse();
     }
 }
