@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+    <employee id="1">
+        <name>Mike Pence</name>
+        <role>Software Engineer</role>
+        <age>25</age>
+        <salary currency="USD">34.5</salary>
+    </employee>
+    <employee id="2">
+        <name>Donald Trap</name>
+        <role><![CDATA[HTML Tag <code>Tech Manager</code>]]></role>
+        <age>39</age>
+        <salary currency="USD">50.5</salary>
+    </employee>
+    <employee id="3">
+        <name>Vladimir Rutin</name>
+        <role><![CDATA[QA & Engineer]]></role>
+        <age>32</age>
+        <salary currency="EUR">40</salary>
+    </employee>
+</employees>
