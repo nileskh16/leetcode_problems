@@ -1,7 +1,6 @@
-package leetcode;
+package leetcode.april_21;
 
-import com.plural.spring.fundamentals.leetcodes.PowerIntegers;
-import org.junit.Assert;
+import com.plural.spring.fundamentals.leetcodes.april_21.PowerIntegers;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

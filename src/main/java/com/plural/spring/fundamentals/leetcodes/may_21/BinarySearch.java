@@ -1,4 +1,4 @@
-package com.plural.spring.fundamentals.leetcodes;
+package com.plural.spring.fundamentals.leetcodes.may_21;
 
 import com.plural.spring.fundamentals.utils.BinaryTree;
 
@@ -61,7 +61,7 @@ public class BinarySearch {
     }
 
     private void runBinarySearch() {
-        BinaryTree tree = new BinaryTree();
+        var tree = new BinaryTree();
         tree.addNode("Portugal");
         tree.addNode("Sporting Lisbon");
         tree.addNode("Manchester United");

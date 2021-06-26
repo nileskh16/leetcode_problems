@@ -1,4 +1,4 @@
-package com.plural.spring.fundamentals.leetcodes;
+package com.plural.spring.fundamentals.leetcodes.april_21;
 
 import java.util.PriorityQueue;
 

@@ -1,6 +1,6 @@
-package leetcode;
+package leetcode.april_21;
 
-import com.plural.spring.fundamentals.leetcodes.FurthestBuilding;
+import com.plural.spring.fundamentals.leetcodes.april_21.FurthestBuilding;
 import org.junit.Assert;
 import org.junit.Test;
 

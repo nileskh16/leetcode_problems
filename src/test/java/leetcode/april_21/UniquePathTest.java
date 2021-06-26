@@ -1,6 +1,6 @@
-package leetcode;
+package leetcode.april_21;
 
-import com.plural.spring.fundamentals.leetcodes.UniquePathTwo;
+import com.plural.spring.fundamentals.leetcodes.april_21.UniquePathTwo;
 import org.junit.Assert;
 import org.junit.Test;
 

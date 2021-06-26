@@ -1,4 +1,4 @@
-package com.plural.spring.fundamentals.leetcodes;
+package com.plural.spring.fundamentals.leetcodes.april_21;
 
 /*
 Problem statement: A robot is located at the top-left corner of a m x n grid.

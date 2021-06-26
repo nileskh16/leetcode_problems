@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BinaryTree {
-    private TreeNode root;
+    private TreeNode<String> root;
 
     public void addNode(String value) {
         root = add(root, value);
@@ -20,9 +20,9 @@ public class BinaryTree {
         printAll(root);
     }
 
-    private TreeNode add(TreeNode node, String value) {
+    private TreeNode<String> add(TreeNode<String> node, String value) {
         if (node == null) {
-            node = new TreeNode(value);
+            node = new TreeNode<>(value);
         } else {
             if (node.getValue().compareTo(value) > 0) {
                 node.setLeft(add(node.getLeft(), value));
@@ -36,12 +36,12 @@ public class BinaryTree {
     private void sortValues(List<String> values, TreeNode node) {
         if (node != null) {
             sortValues(values, node.getLeft());
-            values.add(node.getValue());
+            values.add((String) node.getValue());
             sortValues(values, node.getRight());
         }
     }
 
-    private void printAll(TreeNode node) {
+    private void printAll(TreeNode<String> node) {
         if (node != null) {
             System.out.println(node.getValue());
             printAll(node.getLeft());

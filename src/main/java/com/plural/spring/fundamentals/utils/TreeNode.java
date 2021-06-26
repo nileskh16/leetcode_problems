@@ -1,11 +1,11 @@
 package com.plural.spring.fundamentals.utils;
 
-public class TreeNode {
-    private String value;
+public class TreeNode <T> {
+    private T value;
     private TreeNode left;
     private TreeNode right;
 
-    public TreeNode(String value) {
+    public TreeNode(T value) {
         this.value = value;
         left = null;
         right = null;
@@ -19,7 +19,7 @@ public class TreeNode {
         return right;
     }
 
-    public String getValue() { return value; }
+    public T getValue() { return value; }
 
     public void setLeft(TreeNode left) { this.left = left; }
 
