@@ -61,7 +61,7 @@ public class BinarySearch {
     }
 
     private void runBinarySearch() {
-        var tree = new BinaryTree();
+        BinaryTree tree = new BinaryTree();
         tree.addNode("Portugal");
         tree.addNode("Sporting Lisbon");
         tree.addNode("Manchester United");

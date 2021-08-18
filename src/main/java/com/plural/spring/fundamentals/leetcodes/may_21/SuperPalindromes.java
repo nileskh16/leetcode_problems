@@ -51,7 +51,7 @@ public class SuperPalindromes {
     }
 
     private boolean isStringPalindrome(String txt) {
-        if (txt.isBlank() || txt.isEmpty()) return false;
+        if (txt.isEmpty()) return false;
         boolean result = true;
         int start = 0;
         int end = txt.length() - 1;

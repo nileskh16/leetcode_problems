@@ -9,9 +9,14 @@ import java.util.List;
 
 public class ObjectSerialization {
 
+    private static final String hostname = "localhost";
+    private static final int port = 3456;
+
     public static void main(String[] args) {
-        System.out.println("Serializing objects");
-        serializeObjects();
+        String arg = args[0];
+        if (arg.equalsIgnoreCase("server")) {
+            runServer();
+        } else runClient();
     }
 
     private static void serializeObjects() {
@@ -41,5 +46,15 @@ public class ObjectSerialization {
         } catch (IOException | ClassNotFoundException ioException) {
             ioException.printStackTrace();
         }
+    }
+
+    private static void runClient() {
+        AppCommClient commClient = new AppCommClient();
+        commClient.connectAndTalk(hostname, port);
+    }
+
+    private static void runServer() {
+        AppCommServer server = new AppCommServer();
+        server.listenAndTalk(port);
     }
 }
