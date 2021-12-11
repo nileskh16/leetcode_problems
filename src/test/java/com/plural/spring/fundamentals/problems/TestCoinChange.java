@@ -1,5 +1,6 @@
 package com.plural.spring.fundamentals.problems;
 
+import com.plural.spring.fundamentals.problems.dp.CoinChange;
 import org.junit.Assert;
 import org.junit.Test;
 

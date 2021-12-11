@@ -3,33 +3,34 @@ package com.plural.spring.fundamentals.problems.arrays;
 public class MergeSortedArrays {
 
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int[] arr = new int[m + n];
-        int left = 0, right = 0, index = 0;
-        while (left < m && right < n) {
+
+        for (int i = m - 1; i >= 0; i--) {
+            nums1[i + n] = nums1[i];
+        }
+
+        int left = n, right = 0, index = 0;
+        while (left < (m + n) && right < n) {
             if (nums1[left] < nums2[right]) {
-                arr[index] = nums1[left];
+                nums1[index] = nums1[left];
                 left++;
             } else {
-                arr[index] = nums2[right];
+                nums1[index] = nums2[right];
                 right++;
             }
             index++;
         }
-        if (left < m) {
-            for (int i=left; i<m; i++) {
-                arr[index] = nums1[i];
+        if (left < (m + n)) {
+            for (int i = left; i < m + n; i++) {
+                nums1[index] = nums1[i];
                 index++;
             }
         }
 
         if (right < n) {
-            for (int i=right; i<n; i++) {
-                arr[index] = nums2[i];
+            for (int i = right; i < n; i++) {
+                nums1[index] = nums2[i];
                 index++;
             }
-        }
-        for (int i = 0; i<arr.length; i++) {
-            nums1[i] = arr[i];
         }
     }
 }

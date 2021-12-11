@@ -2,6 +2,7 @@ package com.plural.spring.fundamentals.tij.demo;
 
 import com.plural.spring.fundamentals.tij.models.AppClass;
 import com.plural.spring.fundamentals.tij.models.Student;
+import com.plural.spring.fundamentals.tij.models.UserModel;
 
 import java.io.*;
 import java.util.Arrays;
@@ -13,10 +14,12 @@ public class ObjectSerialization {
     private static final int port = 3456;
 
     public static void main(String[] args) {
-        String arg = args[0];
-        if (arg.equalsIgnoreCase("server")) {
-            runServer();
-        } else runClient();
+//        String arg = args[0];
+//        if (arg.equalsIgnoreCase("server")) {
+//            runServer();
+//        } else runClient();
+
+        runExternalize();
     }
 
     private static void serializeObjects() {
@@ -56,5 +59,26 @@ public class ObjectSerialization {
     private static void runServer() {
         AppCommServer server = new AppCommServer();
         server.listenAndTalk(port);
+    }
+
+    private static void runExternalize() {
+        try (FileOutputStream fileOutputStream = new FileOutputStream("objects.out");
+        ObjectOutputStream outputStream = new ObjectOutputStream(fileOutputStream)) {
+            UserModel user = new UserModel("Kylian", "P@$$word");
+            user.setEmail("kmbappe@fr.com");
+            user.setAddress("Paris, France");
+            outputStream.writeObject(user);
+            System.out.println("Before storing the user " + user);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+        try(FileInputStream inputStream = new FileInputStream("objects.out");
+        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream)) {
+            UserModel savedUser = (UserModel) objectInputStream.readObject();
+            System.out.println("After storing the user " + savedUser);
+        } catch (IOException | ClassNotFoundException ioException) {
+            ioException.printStackTrace();
+        }
     }
 }

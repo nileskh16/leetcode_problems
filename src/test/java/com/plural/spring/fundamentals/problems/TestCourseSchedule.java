@@ -1,5 +1,6 @@
 package com.plural.spring.fundamentals.problems;
 
+import com.plural.spring.fundamentals.problems.arrays.CourseSchedule;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

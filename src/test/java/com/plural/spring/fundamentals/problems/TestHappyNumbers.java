@@ -1,5 +1,6 @@
 package com.plural.spring.fundamentals.problems;
 
+import com.plural.spring.fundamentals.problems.maths.HappyNumbers;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,7 +14,8 @@ public class TestHappyNumbers {
 
     @Test
     public void testOne() {
-        Assert.assertTrue(happyNumbers.isHappy(19));
-        Assert.assertFalse(happyNumbers.isHappy(2));
+        Assert.assertTrue(happyNumbers.isHappyNum(19));
+        Assert.assertFalse(happyNumbers.isHappyNum(2));
+        Assert.assertTrue(happyNumbers.isHappyNum(1));
     }
 }

@@ -1,6 +1,5 @@
 package com.plural.spring.fundamentals.problems.arrays;
 
-import com.plural.spring.fundamentals.problems.arrays.MergeSortedArrays;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -41,6 +40,14 @@ public class TestMergeSortedArrays {
         int[] nums1 = {4, 5, 6, 0, 0, 0};
         int[] nums2 = {1, 2, 3};
         sortedArrays.merge(nums1, 3, nums2, 3);
+        Assert.assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6}, nums1);
+    }
+
+    @Test
+    public void testFive() {
+        int[] nums1 = {1, 2, 4, 5, 6, 0};
+        int[] nums2 = {3};
+        sortedArrays.merge(nums1, 5, nums2, 1);
         Assert.assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6}, nums1);
     }
 }
