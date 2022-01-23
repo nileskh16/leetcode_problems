@@ -1,5 +1,9 @@
 package com.plural.spring.fundamentals.problems.strings;
 
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
+
 public class LongestPalindromicSubstring {
 
     public String longestPalindrome(String s) {
@@ -33,5 +37,36 @@ public class LongestPalindromicSubstring {
             right--;
         }
         return true;
+    }
+
+    private static List<String> getTagContent(String input) {
+        List<String> ans = new LinkedList<>();
+        Deque<String> stack = new LinkedList<>();
+        boolean isTagEnd = false;
+        StringBuilder content = new StringBuilder();
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (ch == '<') {
+                i++;
+                isTagEnd = i < input.length() && input.charAt(i) == '/';
+                if (isTagEnd) i++;
+                StringBuilder tagName = new StringBuilder();
+                while (i < input.length() && input.charAt(i) != '>') {
+                    tagName.append(input.charAt(i));
+                    i++;
+                }
+                if (i < input.length() && input.charAt(i) == '>') {
+                    if (tagName.length() == 0) continue;
+                    if (isTagEnd) {
+                        String openTag = stack.pop();
+                        if (tagName.toString().equals(openTag) && content.length() > 0) ans.add(content.toString());
+                    } else stack.push(tagName.toString());
+                }
+                content.setLength(0);
+            } else {
+                content.append(ch);
+            }
+        }
+        return ans;
     }
 }
